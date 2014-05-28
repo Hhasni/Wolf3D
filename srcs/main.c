@@ -6,7 +6,7 @@
 /*   By: hhasni <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/09 16:12:21 by hhasni            #+#    #+#             */
-/*   Updated: 2014/05/14 15:19:38 by hhasni           ###   ########.fr       */
+/*   Updated: 2014/05/28 20:18:09 by hhasni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,28 @@ void				ft_val(t_env *e)
 	e->diry = 0;
 	e->planx = 0;
 	e->plany = 0.66;
+	e->dark = 0;
+	e->move_s = MOVE_SPEED;
+	e->moveforward = 0;
+	e->movebackyard = 0;
+	e->turn_left = 0;
+	e->turn_right = 0;
+	e->straffe_right = 0;
+	e->straffe_left = 0;
+	e->rot_s = ROT_SPEED;
+	e->cursor = 0;
+}
+
+void				ft_main_extend_mlx(t_env *e)
+{
+	mlx_expose_hook(e->win, expose_hook, e);
+	mlx_do_key_autorepeatoff(e->mlx);
+	mlx_hook(e->win, KeyPress, KeyPressMask, ft_key_press, e);
+	mlx_hook(e->win, KeyRelease, KeyReleaseMask, ft_key_release, e);
+	mlx_hook(e->win, MotionNotify, PointerMotionMask, mouse_hook, e);
+	mlx_mouse_hook(e->win, mouse_hook, e);
+	mlx_loop_hook(e->mlx, ft_loop_hook, e);
+	mlx_loop(e->mlx);
 }
 
 int					main(int ac, char **av, char **env)
@@ -82,10 +104,6 @@ int					main(int ac, char **av, char **env)
 				(e.img, &(e.bpp), &(e.sizel), &(e.endian))))
 		return (ft_error(3));
 	ft_val(&e);
-	mlx_hook(e.win, 2, 3, key_hook, &e);
-	mlx_expose_hook(e.win, expose_hook, &e);
-	mlx_mouse_hook(e.win, mouse_hook, &e);
-	mlx_loop_hook(e.mlx, ft_hook, &e);
-	mlx_loop(e.mlx);
+	ft_main_extend_mlx(&e);
 	return (0);
 }

@@ -16,26 +16,26 @@ void		ft_straffe_left(t_env *e)
 {
 	if (e->dirx >= -1 && e->dirx <= -0.8 && e->diry > -0.8 && e->diry <= 0.8)
 	{
-		if (e->map[(int)(e->posx)][(int)(e->posy - MOVE_SPEED)] == 0
-			&& e->map[(int)(e->posx)][(int)(e->posy - MOVE_SPEED)] == 0)
-			e->posy = e->posy - MOVE_SPEED;
+		if (e->map[(int)(e->posx)][(int)(e->posy - e->move_s)] == 0
+			&& e->map[(int)(e->posx)][(int)(e->posy - e->move_s)] == 0)
+			e->posy = e->posy - e->move_s;
 	}
 	else if (e->dirx >= 0.5 && e->dirx <= 1 && e->diry >= -0.8 && e->diry < 0.8)
 	{
-		if (e->map[(int)(e->posx)][(int)(e->posy + MOVE_SPEED)] == 0
-			&& e->map[(int)(e->posx)][(int)(e->posy + MOVE_SPEED)] == 0)
-			e->posy = e->posy + MOVE_SPEED;
+		if (e->map[(int)(e->posx)][(int)(e->posy + e->move_s)] == 0
+			&& e->map[(int)(e->posx)][(int)(e->posy + e->move_s)] == 0)
+			e->posy = e->posy + e->move_s;
 	}
 	else if (e->dirx >= -0.8 && e->dirx <= 0.8
 		&& e->diry >= -1 && e->diry < -0.5)
 	{
-		if (e->map[(int)(e->posx + MOVE_SPEED)][(int)(e->posy)] == 0)
-			e->posx = e->posx + MOVE_SPEED;
+		if (e->map[(int)(e->posx + e->move_s)][(int)(e->posy)] == 0)
+			e->posx = e->posx + e->move_s;
 	}
 	else if (e->dirx >= -0.8 && e->dirx <= 0.8 && e->diry > 0.5 && e->diry <= 1)
 	{
-		if (e->map[(int)(e->posx - MOVE_SPEED)][(int)(e->posy)] == 0)
-			e->posx = e->posx - MOVE_SPEED;
+		if (e->map[(int)(e->posx - e->move_s)][(int)(e->posy)] == 0)
+			e->posx = e->posx - e->move_s;
 	}
 }
 
@@ -43,26 +43,26 @@ void		ft_straffe_right(t_env *e)
 {
 	if (e->dirx >= -1 && e->dirx <= -0.8 && e->diry > -0.8 && e->diry <= 0.8)
 	{
-		if (e->map[(int)(e->posx)][(int)(e->posy + MOVE_SPEED)] == 0
-			&& e->map[(int)(e->posx)][(int)(e->posy + MOVE_SPEED)] == 0)
-			e->posy = e->posy + MOVE_SPEED;
+		if (e->map[(int)(e->posx)][(int)(e->posy + e->move_s)] == 0
+			&& e->map[(int)(e->posx)][(int)(e->posy + e->move_s)] == 0)
+			e->posy = e->posy + e->move_s;
 	}
 	else if (e->dirx >= 0.5 && e->dirx <= 1 && e->diry >= -0.8 && e->diry < 0.8)
 	{
-		if (e->map[(int)(e->posx)][(int)(e->posy - MOVE_SPEED)] == 0
-			&& e->map[(int)(e->posx)][(int)(e->posy - MOVE_SPEED)] == 0)
-			e->posy = e->posy - MOVE_SPEED;
+		if (e->map[(int)(e->posx)][(int)(e->posy - e->move_s)] == 0
+			&& e->map[(int)(e->posx)][(int)(e->posy - e->move_s)] == 0)
+			e->posy = e->posy - e->move_s;
 	}
 	else if (e->dirx >= -0.8 && e->dirx <= 0.8
 		&& e->diry >= -1 && e->diry < -0.5)
 	{
-		if (e->map[(int)(e->posx - MOVE_SPEED)][(int)(e->posy)] == 0)
-			e->posx = e->posx - MOVE_SPEED;
+		if (e->map[(int)(e->posx - e->move_s)][(int)(e->posy)] == 0)
+			e->posx = e->posx - e->move_s;
 	}
 	else if (e->dirx >= -0.8 && e->dirx <= 0.8 && e->diry > 0.5 && e->diry <= 1)
 	{
-		if (e->map[(int)(e->posx + MOVE_SPEED)][(int)(e->posy)] == 0)
-			e->posx = e->posx + MOVE_SPEED;
+		if (e->map[(int)(e->posx + e->move_s)][(int)(e->posy)] == 0)
+			e->posx = e->posx + e->move_s;
 	}
 }
 

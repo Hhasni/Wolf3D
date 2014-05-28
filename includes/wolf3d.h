@@ -6,7 +6,7 @@
 /*   By: hhasni <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 10:31:47 by hhasni            #+#    #+#             */
-/*   Updated: 2014/05/14 21:06:55 by hhasni           ###   ########.fr       */
+/*   Updated: 2014/05/28 20:10:57 by hhasni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
+# include </usr/X11/include/X11/X.h>
 # define BUFF_SIZE	256
 # define HEIGH		720
 # define WIDTH		1280
@@ -31,8 +32,8 @@
 # define D			100
 # define Q			113
 # define E			101
-# define MOVE_SPEED 0.15
-# define ROT_SPEED	0.1
+# define MOVE_SPEED 0.05
+# define ROT_SPEED	0.05
 # define NB_TEXTURES 2
 # define TEXW 64
 # define TEXH 64
@@ -87,6 +88,18 @@ typedef struct		s_env
 
 	double			coeffcam;
 	double			dark;
+	double			move_s;
+	int				moveforward;
+	int				movebackyard;
+	int				turn_left;
+	int				turn_right;
+	int				straffe_right;
+	int				straffe_left;
+	int				left;
+	int				right;
+	double			rot_s;
+	double			cursor;
+
 }					t_env;
 
 typedef struct		s_list
@@ -127,6 +140,7 @@ void				ft_initray(t_env *e);
 void				ft_dda(t_env *e);
 void				ft_line(t_env *e);
 void				ft_moveforward(t_env *e);
+void				ft_movebackyard(t_env *e);
 void				ft_turn_left(t_env *e);
 void				ft_turn_right(t_env *e);
 void				ft_straffe_left(t_env *e);
@@ -140,5 +154,8 @@ void				ft_perso(t_env *e);
 void				ft_move_even(int keycode, t_env *e);
 void				ft_destroy_block(t_env *e, int x, int y);
 void				ft_add_block(t_env *e, int x, int y);
+int					ft_key_press(int keycode, t_env *e);
+int					ft_key_release(int keycode, t_env *e);
+int					ft_loop_hook(t_env *e);
 
 #endif

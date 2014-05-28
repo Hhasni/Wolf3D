@@ -6,7 +6,7 @@
 #    By: hhasni <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/29 12:51:34 by hhasni            #+#    #+#              #
-#    Updated: 2014/05/18 22:29:15 by hhasni           ###   ########.fr        #
+#    Updated: 2014/05/28 20:15:22 by hhasni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS =		main.c \
 			ft_map.c \
 			ft_perso.c \
 			ft_ray.c \
+			ft_key.c \
 			ft_straffe.c \
 			ft_strsplit.c \
 			ft_tools.c \
